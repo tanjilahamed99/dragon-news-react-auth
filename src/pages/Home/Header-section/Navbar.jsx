@@ -6,6 +6,7 @@ const Navbar = () => {
         <li><Link to={'/'}>Home</Link></li>
         <li><Link to={'/about'}>About</Link></li>
         <li><Link to={'/career'}>Career</Link></li>
+        <li><Link to={'/registration'}>Registration</Link></li>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -31,7 +32,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end flex items-center gap-2">
                 <img className="w-12" src={profile} placeholder={profile} alt="" />
-                <a className="btn bg-black text-white font-semibold">login</a>
+                <Link to={'/login'}><button className="btn bg-black text-white font-semibold">login</button></Link>
             </div>
         </div>
     );
