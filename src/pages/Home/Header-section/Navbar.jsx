@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
 import profile from '../../../assets/user.png'
+import { useContext } from "react";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
- 
-    const 
+
+    const { user, logout } = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logout()
+            .then(() => console.log('logout dane'))
+            .catch(error => console.log(error))
+    }
 
     const ulLinks = <>
         <li><Link to={'/'}>Home</Link></li>
@@ -34,8 +42,13 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end flex items-center gap-2">
-                <img className="w-12" src={profile} placeholder={profile} alt="" />
-                <Link to={'/login'}><button className="btn bg-black text-white font-semibold">login</button></Link>
+                <img className="w-12" src={user ? user.photoURL : profile} placeholder={profile} alt="" />
+
+                {
+                    user ? <button onClick={handleLogout} className="btn bg-black text-white font-semibold">logout</button> :
+                        <Link to={'/login'}><button className="btn bg-black text-white font-semibold">login</button></Link>
+                }
+
             </div>
         </div>
     );

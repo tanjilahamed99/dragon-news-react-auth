@@ -2,24 +2,31 @@ import { Link } from "react-router-dom";
 import Navbar from "../Home/Header-section/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import auth from "../../Firebase/firebaseConfig";
 
 
 const Registration = () => {
     const { createUsers } = useContext(AuthContext)
 
-  
+
 
 
     const handleCreateUser = e => {
         e.preventDefault()
-        e.target('')
-        // const name = e.target.name.value
+        const name = e.target.name.value
+        const image = e.target.imageUrl.value
         const email = e.target.gmail.value
         const password = e.target.password.value
 
         createUsers(email, password)
             .then(result => {
                 console.log(result.user)
+                updateProfile(auth.currentUser, {
+                    displayName: name, photoURL: image
+                })
+                    .then(() => console.log('profile update dane'))
+                    .catch(error => console.log(error))
             })
             .catch(error => {
                 console.log(error.message)
