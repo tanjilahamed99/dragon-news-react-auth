@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import { FaShareAlt, FaRegBookmark, FaRegEye } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const News = ({ news }) => {
-    const { author, title, image_url, details, rating, total_view } = news
+    const {_id,author, title, image_url, details, rating, total_view } = news
+    console.log(_id)
     return (
         <div className='w-full my-8'>
             <div className='flex justify-between bg-[#F3F3F3] px-3 py-2'>
@@ -21,7 +23,7 @@ const News = ({ news }) => {
             <h2 className='font-bold text-xl text-left my-4'>{title}</h2>
             <img className='w-full' src={image_url} alt="" />
             <p className='text-[#706F6F] font-normal text-sm text-left'>{details}</p>
-            <button className='btn text-[#FF8C47] font-semibold'>see more</button>
+            <Link to={`/detail/${_id}`}><button className='btn text-[#FF8C47] font-semibold'>see more</button></Link>
             <hr className='border-2 w-[80%] mx-auto my-5' />
             <div className='flex items-center justify-between'>
                 <div className='flex items-center gap-2'>

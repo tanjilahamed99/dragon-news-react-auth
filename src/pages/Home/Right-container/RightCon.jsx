@@ -2,7 +2,6 @@ import { FaGoogle, FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import qzone1 from '../../../assets/qZone1.png'
 import qzone2 from '../../../assets/qZone2.png'
 import qzone3 from '../../../assets/qZone3.png'
-import bg1 from '../../../assets/bg1.png'
 
 
 const RightCon = () => {
@@ -39,6 +38,11 @@ const RightCon = () => {
                 <img src={qzone1} alt="" />
                 <img src={qzone2} alt="" />
                 <img src={qzone3} alt="" />
+            </div>
+            <div className="text-white  pt-32 px-10 text-center mt-5 bg-[url('https://i.ibb.co/S0yfjR0/bg1.png')]  bg-cover bg-no-repeat h-[500px]">
+                <h2 className="font-bold text-xl"> Create an Amazing Newspaper</h2>
+                <p className="my-7 font-medium ">Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</p>
+                <button className="btn bg-[#D72050] text-white border-none">Learn more</button>
             </div>
         </div>
     );

@@ -3,6 +3,7 @@ import Root from "./Root";
 import Home from "../pages/Home/Home";
 import Career from "../pages/Career/Career";
 import About from "../pages/About/About";
+import Details from "../pages/Detail/Details";
 
 const route = createBrowserRouter([
     {
@@ -10,16 +11,21 @@ const route = createBrowserRouter([
         element: <Root></Root>,
         children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'/about',
-                element:<About></About>
+                path: '/about',
+                element: <About></About>
             },
             {
-                path:'/career',
-                element:<Career></Career>
+                path: '/career',
+                element: <Career></Career>
+            },
+            {
+                path: '/detail/:detailId',
+                element: <Details></Details>,
+                loader: () => fetch('../news.json')
             },
         ]
     }
