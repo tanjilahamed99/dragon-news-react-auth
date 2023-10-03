@@ -14,8 +14,6 @@ const AllCategory = () => {
             .then(data => setCategory(data))
     }, [])
 
-    console.log(category)
-
 
     return (
         <div className="space-y-5 text-left">

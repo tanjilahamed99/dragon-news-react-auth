@@ -18,14 +18,14 @@ const Home = () => {
                 </Marquee>
             </div>
             <Navbar></Navbar>
-            <div className="grid grid-cols-4 items-center justify-center text-center mt-10">
-                <div>
+            <div className="grid grid-cols-4 gap-6  justify-center mt-10">
+                <div className="">
                     <AllCategory></AllCategory>
                 </div>
-                <div className="cal-span-2">
+                <div className="col-span-2">
                     <DragonNews></DragonNews>
                 </div>
-                <div>
+                <div className="">
                     <RightCon></RightCon>
                 </div>
             </div>
