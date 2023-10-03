@@ -2,18 +2,32 @@ import { FaGoogle, FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import qzone1 from '../../../assets/qZone1.png'
 import qzone2 from '../../../assets/qZone2.png'
 import qzone3 from '../../../assets/qZone3.png'
+import { useContext } from "react";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 
 const RightCon = () => {
+    const { googleLogin, githubLogin } = useContext(AuthContext)
+    const google = () => {
+        googleLogin()
+            .then(result => console.log(result.user))
+            .catch(error => console.log(error.message))
+    }
+
+    const github = () => {
+        githubLogin()
+            .then(result => console.log(result.user))
+            .catch(error => console.log(error.message))
+    }
     return (
         <div>
             <div>
                 <h2 className="mb-3 font-bold text-xl">Login with</h2>
-                <button className="btn btn-outline w-full mb-2 text-teal-400">
+                <button onClick={google} className="btn btn-outline w-full mb-2 text-teal-400">
                     <FaGoogle></FaGoogle>
                     Google
                 </button>
-                <button className="btn btn-outline w-full">
+                <button onClick={github} className="btn btn-outline w-full">
                     <FaGoogle></FaGoogle>
                     Github
                 </button>
