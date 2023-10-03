@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const News = ({ news }) => {
     const {_id,author, title, image_url, details, rating, total_view } = news
-    console.log(_id)
     return (
         <div className='w-full my-8'>
             <div className='flex justify-between bg-[#F3F3F3] px-3 py-2'>

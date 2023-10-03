@@ -1,7 +1,31 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Home/Header-section/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+
 
 const Registration = () => {
+    const { createUsers } = useContext(AuthContext)
+
+  
+
+
+    const handleCreateUser = e => {
+        e.preventDefault()
+        e.target('')
+        // const name = e.target.name.value
+        const email = e.target.gmail.value
+        const password = e.target.password.value
+
+        createUsers(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error.message)
+            })
+    }
+
     return (
         <div>
             <Navbar></Navbar>
@@ -12,12 +36,12 @@ const Registration = () => {
                         <h1 className="text-5xl font-bold my-5">Please Registration!</h1>
                     </div>
                     <div className="card mx-auto w-[50%] shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handleCreateUser} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input name="text" type="name" placeholder="your name" className="input input-bordered" required />
+                                <input name="name" type="text" placeholder="your name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -29,7 +53,7 @@ const Registration = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input name="email" type="email" placeholder="email" className="input input-bordered" required />
+                                <input type="email" name="gmail" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -39,7 +63,7 @@ const Registration = () => {
                             </div>
                             <div className="gap-2 flex">
                                 <input name="email" type="checkbox" className="w-[30px] mt-1" required />
-                               <h1>Accept Term & Conditions</h1>
+                                <h1>Accept Term & Conditions</h1>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Registration</button>

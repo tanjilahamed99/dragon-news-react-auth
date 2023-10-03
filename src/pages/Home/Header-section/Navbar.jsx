@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import profile from '../../../assets/user.png'
 
 const Navbar = () => {
+ 
+    const 
+
     const ulLinks = <>
         <li><Link to={'/'}>Home</Link></li>
         <li><Link to={'/about'}>About</Link></li>

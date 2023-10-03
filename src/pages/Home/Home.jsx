@@ -8,6 +8,7 @@ import RightCon from "./Right-container/RightCon";
 
 const Home = () => {
 
+
     return (
         <div>
             <Header></Header>
